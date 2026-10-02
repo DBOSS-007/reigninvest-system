@@ -1,0 +1,12 @@
+if(authGuard()){let u=getUser();navShell("user","Dashboard");let db=ReignDB;$("#pageContent").innerHTML=`
+<div class="page-head"><div><span class="eyebrow">MEMBER WORKSPACE</span><h1>Good evening, ${u.name.split(" ")[0]}.</h1><p>Here is your account position and recent activity.</p></div><button class="btn btn-primary" id="depositBtn">+ Add funds</button></div>
+<div class="stats-grid"><div class="stat-card"><small>Available balance</small><b>${money(685000)}</b><span class="up">+8.4% this month</span></div><div class="stat-card"><small>Total invested</small><b>${money(1250000)}</b><span>3 active plans</span></div><div class="stat-card"><small>Pending withdrawal</small><b>${money(85000)}</b><span class="warn">Processing</span></div><div class="stat-card"><small>Referral earnings</small><b>${money(42000)}</b><span class="up">+₦8,000 this month</span></div></div>
+<div class="content-grid"><div class="box"><div class="box-h">Portfolio performance <span>Last 30 days</span></div><div class="chart"><div class="chart-grid"></div><svg viewBox="0 0 600 180" preserveAspectRatio="none"><polyline points="0,150 55,132 110,140 165,108 220,118 275,82 330,96 385,61 440,74 495,43 550,58 600,25" fill="none" stroke="#4aa8ff" stroke-width="3"/></svg></div></div>
+<div class="box"><div class="box-h">Account status</div><div class="status-list"><p><span>KYC verification</span>${badge("Verified")}</p><p><span>Bank details</span>${badge("Verified")}</p><p><span>Security</span>${badge("Protected")}</p><p><span>Account</span>${badge("Active")}</p></div></div></div>
+<div class="box" id="transactions"><div class="box-h">Recent transactions <a href="#" class="text-link">View all</a></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Type</th><th>Reference</th><th>Amount</th><th>Status</th></tr></thead><tbody>
+<tr><td>01 Oct 2026</td><td>Investment</td><td>INV-20841</td><td>${money(250000)}</td><td>${badge("Completed")}</td></tr>
+<tr><td>29 Sep 2026</td><td>Deposit</td><td>DEP-90312</td><td>${money(500000)}</td><td>${badge("Completed")}</td></tr>
+<tr><td>27 Sep 2026</td><td>Withdrawal</td><td>WD-30970</td><td>${money(85000)}</td><td>${badge("Pending")}</td></tr>
+<tr><td>24 Sep 2026</td><td>Commission</td><td>COM-7710</td><td>${money(12000)}</td><td>${badge("Completed")}</td></tr>
+</tbody></table></div></div>`;
+$("#depositBtn").onclick=()=>toast("Deposit workflow opened — connect your payment provider here.")}
